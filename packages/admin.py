@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Packages, Category
+from .models import Package, Category
 
 class PackagesAdmin(admin.ModelAdmin):
     list_display = (
@@ -18,5 +18,5 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 # Register your models here.
-admin.site.register(Packages, PackagesAdmin)
+admin.site.register(Package, PackagesAdmin)
 admin.site.register(Category, CategoryAdmin)

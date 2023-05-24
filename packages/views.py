@@ -9,7 +9,7 @@ from django.db.models.functions import Lower
 def all_packages(request):
     """ A view to show all packages, including sorting and search queries """
 
-    packages = Packages.objects.all()
+    packages = Package.objects.all()
     query = None
     categories = None
     sort = None
