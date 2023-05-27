@@ -42,11 +42,11 @@ def adjust_bag(request, item_id):
             messages.success(request,
                              (f'Updated {package.name} '
                               f'quantity to {bag[item_id]}'))
-        else:
-            bag.pop(item_id)
-            messages.success(request,
-                             (f'Removed {package.name} '
-                              f'from your bag'))
+    else:
+        bag.pop(item_id)
+        messages.success(request,
+                        (f'Removed {package.name} '
+                         f'from your bag'))
 
     
 
