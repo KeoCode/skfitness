@@ -37,6 +37,17 @@ def adjust_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
+    if quantity > 0:
+            bag[item_id] = quantity
+            messages.success(request,
+                             (f'Updated {package.name} '
+                              f'quantity to {bag[item_id]}'))
+        else:
+            bag.pop(item_id)
+            messages.success(request,
+                             (f'Removed {package.name} '
+                              f'from your bag'))
+
     
 
     request.session['bag'] = bag
@@ -48,6 +59,9 @@ def remove_from_bag(request, item_id):
 
     try:
         packages = get_object_or_404(packages, pk=item_id)
+
+        bag.pop(item_id)
+        messages.success(request, f'Removed {package.name} from your bag')
         
 
         request.session['bag'] = bag
