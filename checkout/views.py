@@ -72,13 +72,6 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                product=product,
-                                quantity=quantity,
-                                product_size=size,
-                            )
                             order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
@@ -141,7 +134,7 @@ def checkout(request):
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
-        'stripe_public_key': 'pk_test_51Mv1yaFmjVzqVCTh7RCfWJwcYry7VvVyOOFHuEfg2CkwbqxThPlzpBfn5DoxrxDysSIUwXpNJYOJQniqbVO4VFRS00EAoMcyiK',
+        'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
 
