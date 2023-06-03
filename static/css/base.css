@@ -6,8 +6,18 @@ body {
     background: url('/media/barbell.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
+    color: #e9ecef;
     font-family: 'Lato';
+}
+.font-dark {
+    color: #050505;
+}
+
+.img {
+    float: left;
+    width:  400px;
+    height: 200px;
+    object-fit: cover;
 }
 
 /* from Bulma */
