@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1@=$)n6bfl+y$&q!srj$(3!t0gjln=e%zxon+@r1wol1@o@_d2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-keocode-skfitness-temfhx5lt7i.ws-eu97.gitpod.io', 'localhost']
+ALLOWED_HOSTS = ['8000-keocode-skfitness-temfhx5lt7i.ws-eu98.gitpod.io', 'localhost']
 
 
 # Application definition
@@ -171,7 +171,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Stripe
 SPEND_OFFER_THRESHOLD = 50
 SPEND_OFFER_PERCENTAGE = 10
-STRIPE_CURRENCY = 'usd'
+STRIPE_CURRENCY = 'euro'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')

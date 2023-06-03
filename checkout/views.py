@@ -11,6 +11,7 @@ from .models import Order, OrderLineItem
 from packages.models import Package
 from bag.contexts import bag_contents
 
+import stripe
 import json
 
 
@@ -60,19 +61,19 @@ def checkout(request):
             order.save()
             for item_id, item_data in bag.items():
                 try:
-                    product = Product.objects.get(id=item_id)
+                    package = Package.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
-                            product=product,
+                            package=package,
                             quantity=item_data,
                         )
                         order_line_item.save()
                     else:
                             order_line_item.save()
-                except Product.DoesNotExist:
+                except Package.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't "
+                        "One of the packages in your bag wasn't "
                         "found in our database. "
                         "Please call us for assistance!")
                     )
@@ -91,7 +92,7 @@ def checkout(request):
         if not bag:
             messages.error(request,
                            "There's nothing in your bag at the moment")
-            return redirect(reverse('products'))
+            return redirect(reverse('packages'))
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']

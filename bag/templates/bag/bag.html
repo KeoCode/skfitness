@@ -45,7 +45,7 @@
                                     {% include "bag/packages-info.html" %}
                                 </div>
                                 <div class="col-12 col-sm-6 order-sm-last">
-                                    <p class="my-0">Price Each: ${{ item.packages.price }}</p>
+                                    <p class="my-0">Price Each: €{{ item.packages.price }}</p>
                                     <p><strong>Subtotal: </strong>€{{ item.packages.price | calc_subtotal:item.quantity }}</p>
                                 </div>
                                 <div class="col-12 col-sm-6">

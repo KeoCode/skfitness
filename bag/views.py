@@ -14,7 +14,7 @@ def view_bag(request):
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified package to the shopping bag """
-
+    package = get_object_or_404(Package, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
@@ -33,7 +33,7 @@ def add_to_bag(request, item_id):
 def adjust_bag(request, item_id):
     """Adjust the quantity of the specified packages to the specified amount"""
 
-    packages = get_object_or_404(packages, pk=item_id)
+    packages = get_object_or_404(Package, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
@@ -58,7 +58,7 @@ def remove_from_bag(request, item_id):
     """Remove the item from the shopping bag"""
 
     try:
-        packages = get_object_or_404(packages, pk=item_id)
+        packages = get_object_or_404(Package, pk=item_id)
 
         bag.pop(item_id)
         messages.success(request, f'Removed {package.name} from your bag')
