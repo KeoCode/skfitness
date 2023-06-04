@@ -44,8 +44,8 @@ body {
 }
 
 .btn-black {
-    background: black;
-    color: white;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 .btn-outline-black {

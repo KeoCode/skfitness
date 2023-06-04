@@ -16,7 +16,7 @@
             <div class="col text-center mt-3">
                 <h2 class="logo-font">Packages</h2>
                 {% for c in current_categories %}
-                    <a class="category-badge text-decoration-none" href="{% url 'packages' %}?category={{ c.name }}">
+                    <a class="category-badge text-decoration-none text-" href="{% url 'packages' %}?category={{ c.name }}">
                         <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ c.friendly_name }}</span>
                     </a>
                 {% endfor %}
@@ -40,9 +40,9 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6 order-md-first">
-                        <p class="text-muted mt-3 text-center text-md-left">
+                        <p class="text-decoration-none text-white mt-3 text-center text-md-left">
                             {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span class="small"><a href="{% url 'packages' %}">Package - Home</a> | </span>
+                                <span class="text-decoration-none text-white"><a class="text-decoration-none text-white" href="{% url 'packages' %}">Package - Home</a> | </span>
                             {% endif %}
                             {{ packages|length }} packages{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                         </p>
@@ -68,7 +68,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <p class="lead mb-0 text-left font-weight-bold">€{{ package.price }}</p>
-                                            {% if package.category %}
+                                            {% if packages.category %}
                                             <p class="small mt-1 mb-0">
                                                 <a class="text-muted" href="{% url 'packages' %}?category={{ package.category.name }}">
                                                     <i class="fas fa-tag mr-1"></i>{{ package.category.friendly_name }}
