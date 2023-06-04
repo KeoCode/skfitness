@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col">
                                 {% include "bag/checkout-buttons.html" %}
-                                <p class="text-muted mb-5">A summary of your bag contents is below</p>
+                                <p class="text-decoration-none text-white mb-5">A summary of your bag contents is below</p>
                             </div>
                         </div>
                         {% for item in bag_items %}
@@ -56,13 +56,13 @@
                         {% endfor %}
                         <div class="btt-button shadow-sm rounded-0 border border-black">
                             <a class="btt-link d-flex h-100">
-                                <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+                                <i class="fas fa-arrow-up text-white mx-auto my-auto"></i>
                             </a>	
                         </div>
                     </div>
                     <div class="table-responsive rounded d-none d-md-block">
                         <table class="table table-sm table-borderless">
-                            <thead class="text-black">
+                            <thead class="text-white">
                                 <tr>
                                     <th scope="col">Packages Info</th>
                                     <th scope="col"></th>
@@ -77,7 +77,7 @@
                                     <td class="p-3 w-25">
                                         {% include "bag/packages-image.html" %}
                                     </td>
-                                    <td class="py-3">
+                                    <td class="py-3 text-white">
                                         {% include "bag/packages-info.html" %}
                                     </td>
                                     <td class="py-3">
@@ -92,12 +92,12 @@
                                 </tr>
                             {% endfor %}
                             <tr>
-                                <td colspan="5" class="pt-5 text-right">
+                                <td colspan="5" class="pt-5 text-white text-right">
                                     {% include "bag/bag-total.html" %}
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="5" class="text-right">
+                                <td colspan="5" class="text-white text-right">
                                     {% include "bag/checkout-buttons.html" %}
                                 </td>
                             </tr>
