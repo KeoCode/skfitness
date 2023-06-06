@@ -8,6 +8,8 @@ body {
     height: calc(100vh - 164px);
     color: #e9ecef;
     font-family: 'Lato';
+    font-weight: bold;
+    font-size: large;
 }
 .font-dark {
     color: #050505;
@@ -89,8 +91,19 @@ body {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.7);
 	z-index: -1;
+}
+
+.white-overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: -1;
+
 }
 
 a.category-badge > span.badge:hover {

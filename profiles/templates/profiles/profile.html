@@ -25,17 +25,17 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
-                <p class="text-muted text-white">Default Address </p>
+                <p class="text-white">Default Address </p>
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
                 </form>
             </div>
-            <div class="col-12 col-lg-6">
-                <p class="text-muted">Order History</p>
+            <div class="col-12 col-lg-6 text-white">
+                <p>Order History</p>
                 <div class="order-history table-responsive">
-                    <table class="table table-sm table-borderless">
+                    <table class="table table-sm table-borderless text-white">
                         <thead>
                             <tr>
                                 <th>Order Number</th>
@@ -54,6 +54,15 @@
                                         </a>
                                     </td>
                                     <td>{{ order.date }}</td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            {% for item in order.lineitems.all %}
+                                                <li>
+                                                    {{ item.product.name }} x{{ item.quantity }}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
                                     <td>${{ order.grand_total }}</td>
                                 </tr>
                             {% endfor %}
