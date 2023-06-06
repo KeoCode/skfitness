@@ -5,6 +5,7 @@ from django.conf import settings
 
 from .models import Order, OrderLineItem
 from packages.models import Package
+from profiles.models import UserProfile
 
 
 import json
