@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1@=$)n6bfl+y$&q!srj$(3!t0gjln=e%zxon+@r1wol1@o@_d2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-keocode-skfitness-temfhx5lt7i.ws-eu98.gitpod.io', 'localhost']
+ALLOWED_HOSTS = ['8000-keocode-skfitness-temfhx5lt7i.ws-eu99.gitpod.io', 'localhost']
 
 
 # Application definition
