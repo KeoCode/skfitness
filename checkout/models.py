@@ -49,8 +49,9 @@ class Order(models.Model):
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.order_total < settings.SPEND_OFFER_THRESHOLD:
-            sdp = settings.OFFER_PERCENTAGE
-            self.offer = self.order_total * sdp / 100
+            self.offer = (
+                self.order_total * Decimal(settings.SPEND_OFFER_PERCENTAGE / 100)
+            )
         else:
             self.offer = 0
         self.grand_total = self.order_total - self.offer
