@@ -7,7 +7,10 @@
         var plusDisabled = currentValue > 98;
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
         $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
+        console.log($(`#decrement-qty_${itemId}`));
     }
+
+    console.log();
 
     // Ensure proper enabling/disabling of all inputs on page load
     var allQtyInputs = $('.qty_input');
@@ -41,6 +44,6 @@
        var allQuantityInputs = $(`.input-group-${itemId} input[name='quantity']`);
        var currentValue = parseInt($(closestInput).val());
        $(allQuantityInputs).val(currentValue - 1);
-       handleEnableDisable(itemId, size);
+       handleEnableDisable(itemId);
     });
 </script>

@@ -22,7 +22,7 @@ def bag_contents(request):
             'package': package,
         })
 
-    if total < settings.SPEND_OFFER_THRESHOLD:
+    if total > settings.SPEND_OFFER_THRESHOLD:
         offer = total * Decimal(settings.SPEND_OFFER_PERCENTAGE / 100)
     else:
         offer = 0
