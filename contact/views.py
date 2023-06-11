@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.core.mail import send_mail
 from django.shortcuts import render, HttpResponseRedirect
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -16,7 +18,8 @@ def contact_view(request):
         if form.is_valid:
             form.save()
             messages.success(request, 'Your message has been sent!')
-            return HttpResponseRedirect('/contact?submitted=True')
+            return render(request, 'contact/success.html')
+
 
         else:
             form = ContactForm()
