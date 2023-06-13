@@ -58,6 +58,20 @@ def remove_from_bag(request, item_id):
     """Remove the item from the shopping bag"""
 
     try:
+        package = get_object_or_404(Package, pk=item_id)
+        bag = request.session.get('bag', {})
+
+        bag.pop(item_id)
+        messages.success(request, f'Removed {package.name} from your bag!')
+
+        request.session['bag'] = bag
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Something has gone wrong removing {e}.')
+        return HttpResponse(status=500)
+    
+    try:
         packages = get_object_or_404(Package, pk=item_id)
 
         bag.pop(item_id)

@@ -10,9 +10,9 @@
                 All packages
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-packages-link">
+                <a href="{% url 'packages' %}" class="dropdown-item">All packages</a>
                 <a href="{% url 'packages' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'packages' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
-                <a href="{% url 'packages' %}" class="dropdown-item">All packages</a>
             </div>
         </li>
 

@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.core.validators import MaxValueValidator, MinValueValidator
+from datetime import date
 
 from django_countries.fields import CountryField
 
@@ -12,6 +14,9 @@ class UserProfile(models.Model):
     delivery information and order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    default_email_address = models.EmailField(max_length=254,
+                                             null=True, blank=True )
+    dob = models.Datefield(_("Date"), default=date.today)
     default_phone_number = models.CharField(max_length=20,
                                             null=True, blank=True)
     default_street_address1 = models.CharField(max_length=80,
@@ -26,6 +31,10 @@ class UserProfile(models.Model):
                                         null=True, blank=True)
     default_country = CountryField(blank_label='Country',
                                    null=True, blank=True)
+    height = models.PositiveSmallIntegerField(default=160,
+                                             validators=[MaxValueValidator(300), MinValueValidator(1)])
+    weight = models.PositiveSmallIntegerField(default=160,
+                                             validators=[MaxValueValidator(300), MinValueValidator(1)])
 
     def __str__(self):
         return self.user.username
