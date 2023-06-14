@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.core.validators import MaxValueValidator, MinValueValidator
+from datetime import date
 
 from django_countries.fields import CountryField
 
@@ -26,6 +28,11 @@ class UserProfile(models.Model):
                                         null=True, blank=True)
     default_country = CountryField(blank_label='Country',
                                    null=True, blank=True)
+    dob = models.DateField()
+    height = models.PositiveSmallIntegerField(validators=[MaxValueValidator(300),
+                                             MinValueValidator(1)])
+    weight = models.PositiveSmallIntegerField(validators=[MaxValueValidator(300),
+                                             MinValueValidator(1)])
 
     def __str__(self):
         return self.user.username

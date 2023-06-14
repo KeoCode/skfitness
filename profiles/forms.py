@@ -6,6 +6,7 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         exclude = ('user',)
+        
 
     def __init__(self, *args, **kwargs):
         """
@@ -20,6 +21,9 @@ class UserProfileForm(forms.ModelForm):
             'default_street_address1': 'Street Address 1',
             'default_street_address2': 'Street Address 2',
             'default_county': 'County, State or Locality',
+            'dob' : 'Date of Birth',
+            'height' : 'Height in CM',
+            'weight' : 'Weight in KG',
         }
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
@@ -34,3 +38,18 @@ class UserProfileForm(forms.ModelForm):
                                                         'rounded-0 '
                                                         'profile-form-input')
             self.fields[field].label = False
+    
+        
+            self.fields['dob'].widget = forms.widgets.DateInput(
+            attrs={
+                'type': 'date', 'placeholder': 'dd-mm-yyyy (DOB)',
+                'class': 'form-control'
+                }
+            )
+            self.fields['dob'].label = "Date of Birth:"
+            self.fields['height'].label = "Height in CM"
+            self.fields['weight'].label = "Weight in KG"
+
+        
+            
+        
