@@ -28,11 +28,11 @@ class UserProfile(models.Model):
                                         null=True, blank=True)
     default_country = CountryField(blank_label='Country',
                                    null=True, blank=True)
-    dob = models.DateField()
+    dob = models.DateField(null=True, blank=True)
     height = models.PositiveSmallIntegerField(validators=[MaxValueValidator(300),
-                                             MinValueValidator(1)])
+                                             MinValueValidator(1)], null=True, blank=True)
     weight = models.PositiveSmallIntegerField(validators=[MaxValueValidator(300),
-                                             MinValueValidator(1)])
+                                             MinValueValidator(1)], null=True, blank=True)
 
     def __str__(self):
         return self.user.username
