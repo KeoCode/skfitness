@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['sk-fitness.herokuapp.com', 'localhost', '8000-keocode-skfitness-temfhx5lt7i.ws-eu99.gitpod.io']
+ALLOWED_HOSTS = ['sk-fitness.herokuapp.com', 'localhost', '8000-keocode-skfitness-temfhx5lt7i.ws-eu100.gitpod.io']
 
 
 # Application definition

@@ -48,6 +48,14 @@
                         </p>
                     </div>
                 </div>
+                <div class="mb-2 mt-md-5">
+                    <p class="mt-3">{{ post.body|safe }}</p>
+                    {% if request.user.is_superuser %}
+                    <p class="ml-3">
+                        <a class="logo-font btn btn-black" href="{% url 'add_package' %}">Add a New Package</a> 
+                    </p>
+                    {% endif %}
+                </div>
                 <div class="row">
                     {% for package in packages %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
